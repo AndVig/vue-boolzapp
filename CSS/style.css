@@ -1,0 +1,235 @@
+/* APPROCCIO DESTOP 1ST (Chiedo venia ma sto già in ritardo, la prossima volta faccio mobile 1st promesso)*/
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+.flex{
+    display: flex;
+}
+body{
+    background-color: #d8dad6;
+}
+.g-background{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #009588;
+}
+.main-container{
+    width: 80%;
+    height: 90vh;
+    left: 8%;
+    position: absolute;
+    bottom: 5%;
+}
+.avatar{
+    border-radius: 100%;
+    width: 40px;
+}
+.icon-list{
+    list-style: none;
+}
+.icon-list li{
+    display: inline;
+    margin-right: 10px;
+}
+.contacts{
+    height: 100%;
+    width: 35%;
+    border-right: 1px rgb(187, 187, 187) solid;
+}
+.header-contacts{
+    width: 100%;
+    height:60px;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.notifiche{
+    width: 100%;
+    height: 60px;
+    background-color: #8fdafc;
+    align-items: center;
+}
+.search{
+    width: 100%;
+    height: 50px;
+    background-color: #eaeaea;
+    align-items: center;
+}
+.searchbox{
+    width: 90%;
+    padding: 7px;
+    margin-left: 10px;
+    background-color: white;
+}
+.research{
+    border-style: none;
+    margin-left: 10px;
+}
+.bell{
+    margin-left: 10px;
+    border-radius: 100%;
+    background-color: white;
+    padding: 10px;
+}
+.conversations{
+    width: 100%;
+    height: calc(100% - 170px);
+    background-color: red;
+    overflow-y: auto;
+}
+.c-list{
+    width: 100%;
+}
+.c-list li{
+    list-style: none;
+    height: 80px;
+    border-bottom: 1px solid #D7DBD6;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: white;
+    padding-right: 10px;
+}
+.c-list li :hover{
+    background-color: #eaeaea;
+}
+.c-details{
+    margin-left: 10px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat{
+    height: 100%;
+    width: 65vw;
+    background-color: greenyellow       
+}
+.main-chat{
+    width: 100%;
+    height: calc(100% - 120px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+}
+.write{
+    width: 100%;
+    height: 60px;
+    background-color: #eaeaea;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.msg{
+    border-style: none;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    width: 80%;
+}
+.m-list{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -20px;
+}
+.m-list li{
+    list-style: none;
+    max-width: 60%;
+    height: auto;
+    padding: 8px 10px;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    display: flex;
+    margin-top: 20px;
+}
+.text{
+    width: 70%;
+}
+.info{
+    width: 30%;
+    text-align: right;
+}
+/*TEXT*/
+h2{
+    font-size: 17px;
+}
+h3{
+    font-size: 16px;
+}
+h4{
+    font-size: 15px;
+}
+h5{
+    font-size: 14px;
+}
+.grey{
+    color: grey;
+}
+.sent{
+    background-color: #d4f9bb;
+    left: 0;
+
+}
+.received{
+    background-color: white;
+    left: 40%;
+}
+/*Position adjustments*/
+.l-space{
+    margin-left: 10px;
+}
+.dati{
+    padding-left: -10px;
+}
+@media screen and (max-width:1100px) {
+    .notifiche{
+        display: none;
+    }  
+    .search{
+        display: none;
+    }
+    .r-info{
+        display: none;
+    }
+    .c-list .c-details{
+        display: none;
+    }
+    .time{
+        display: none;
+    }
+    .contacts{
+        width: 65px;
+    }
+    .conversations{
+        height: calc(100% - 60px);
+    }
+}
+@media screen and (max-width:600px) {
+    .contacts{
+        display: none;
+    }
+    .chat{
+        height: 100vh;
+        width: 100vw;
+    }
+    .main-container{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
