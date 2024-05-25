@@ -44,6 +44,7 @@
             <a href="#">Attiva notifiche desktop</a>
           </div>
         </div>
+        <!-- Area Ricerca -->
         <div class="left-searchbar">
           <label class="search-label" for="search">
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -53,10 +54,13 @@
             class="left-searchbar-input"
             placeholder="Cerca o inizia una nuova chat"
             name="search"
+            v-model="searchContact"
           />
         </div>
+
+        <!-- Area chat -->
         <div class="contacts">
-          <div class="contact" v-for="index in contacts">
+          <div class="contact" v-for="index in listContact()">
             <div class="contact-logo">
               <img  :src="index.avatar" alt="Utente" />
             </div>

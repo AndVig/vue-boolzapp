@@ -5,6 +5,7 @@ createApp({
         return{
             myName: "Andrea",
             contactIndex:0,
+            searchContact:'',
             contacts:[
                 {
                     name: "Michele",
@@ -103,5 +104,16 @@ createApp({
                 },
             ]
         }
-    }
+    },
+    methods:{
+        listContact(){
+                    if(this.searchContact){
+                        return this.contacts.filter((element)=>{
+                            return element.name.includes(this.searchContact);
+                        })
+                    }else{
+                        return this.contacts;
+                    }
+                },
+            }
 }).mount("#app");
