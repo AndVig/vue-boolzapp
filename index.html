@@ -1,443 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="g-background"></div>
-    <div id="app" class="main-container flex">
-        <!--Left Side-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script type="module" src="./JS/main.js"></script>
+    <title>Boolzapp</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <!-- contenitore sx -->
+      <div class="left">
+        <div class="header-left">
+          <div class="header-left-logo">
+            <img src="img/avatar_1.jpg" alt="Utente" />
+            <span>{{myName}}</span>
+          </div>
+          <div class="header-left-icons">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="left-disclaimer">
+          <div class="left-disclaimer-logo">
+            <i class="fa fa-bell-slash" aria-hidden="true"></i>
+          </div>
+          <div class="left-disclaimer-text">
+            <h3>Ricevi notifiche di nuovi messaggi</h3>
+            <a href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
+        <div class="left-searchbar">
+          <label class="search-label" for="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </label>
+          <input
+            id="contacts-filter"
+            class="left-searchbar-input"
+            placeholder="Cerca o inizia una nuova chat"
+            name="search"
+          />
+        </div>
         <div class="contacts">
-            <!--Header-->
-            <div class="header-contacts">
-               <div class="l-info flex">
-                <img class="avatar" src="./img/avatar_io.jpg" alt="">
-                <div class=" align-middle">{{myName}}</div>
-               </div>
-               <div class="r-info">
-                <ul class="icon-list grey">
-                    <li><i class="fa-solid fa-circle-notch"></i></li>
-                    <li><i class="fa-solid fa-message"></i></li>
-                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-                </ul>
-               </div> 
+          <div class="contact" v-for="index in contacts">
+            <div class="contact-logo">
+              <img  :src="index.avatar" alt="Utente" />
             </div>
-            <!--Notifies-->
-            <div class="notifiche flex">
-                <span class="bell"><i class="fa-regular fa-bell-slash"></i></span>
-                <span class="l-space"><h5>Ricevi notifiche di nuovi messaggi</h5> <a class="grey" href="">Attiva notifiche desktop</a> </span>
+            <div class="contact-info">
+              <h3>
+                <span class="contact-name">{{index.name}}</span><br>
+                <span >{{index.messages[0].text}}</span>
+                <span class="time f-right"></span>
+              </h3>
+              <small></small>
             </div>
-            <!--Search Box-->
-            <div class="search flex">
-                <div class="searchbox grey">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span><input class="research" placeholder="Cerca o inizia nuova chat">  
-                </div>
-            </div>
-            <!--Conversations-->
-            <div class="conversations">
-                <ul class="c-list">
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_2.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Fabio</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_3.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Samuele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_4.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Andrea</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_5.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Andrea</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_6.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Marianna</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_7.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Mira</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_8.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Yari</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                    <li>
-                        <img class="avatar" src="./img/avatar_1.jpg" alt="">
-                        <div class="c-details">
-                            <h4>Michele</h4>
-                            <span class="grey">Lorem, ipsum dolor sit amet</span>
-                        </div>
-                        <span class="grey time">15:18</span>
-                    </li>
-                </ul>
-            </div>
+          </div>
         </div>
-        <!--Right Side-->
-        <div class="chat">
-            <div class="header-contacts">
-                <img class="avatar" src="img/avatar_1.jpg" >
-                <div class="c-details dati">
-                    <h3>Michele</h3>
-                    <span class="grey">Ultimo accesso: 11:00</span>
-                </div>
-                <ul class="icon-list grey">
-                    <li><i class="fa-solid fa-magnifying-glass"></i></li>
-                    <li><i class="fa-solid fa-paperclip"></i></li>
-                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-                </ul>
-            </div>
-            <div class="main-chat">
-                <ul class="m-list">
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                    <li class="received">
-                        <div class="text">
-                            <h2>ci siamo quasi </h2>
-                        </div>
-                        <div class="info grey">
-                            <div><i class="fa-solid fa-chevron-down"></i></div>
-                            <div><span >16:15</span></div>
-                        </div>
-                    </li>
-                </ul>                
-            </div>
-            <div class="write grey">
-                <i class="fa-regular fa-face-smile"></i>
-                <input class="msg" type="text"placeholder="Scrivi messaggio">
-                <i class="fa-solid fa-microphone"></i>
-            </div>
+      </div>
+      <!-- /contenitore sx -->
+      <!-- contenitore dx -->
+      <div class="right">
+        <div class="header-right">
+          <div class="header-right-logo">
+            <img src="img/avatar_1.jpg" alt="" />
+            <h3>
+              <span id="header-right-contact-name">Michele</span> <br />
+              <small class="time">Ultimo accesso oggi alle </small>
+            </h3>
+          </div>
+          <div class="header-right-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
         </div>
+        <div class="right-messages-container">
+          <div class="right-messages"></div>
+        </div>
+        <div class="right-footer">
+          <div class="right-footer-icon f-left">
+            <i class="far fa-smile"></i>
+          </div>
+          <input class="new-message-inputs" placeholder="Scrivi un messaggio" />
+          <div class="right-footer-icon f-right">
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <!-- /contenitore dx -->
     </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./JS/main.js"></script>
-</body>
+  </body>
 </html>

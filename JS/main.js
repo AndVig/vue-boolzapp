@@ -4,6 +4,7 @@ createApp({
     data(){
         return{
             myName: "Andrea",
+            contactIndex:0,
             contacts:[
                 {
                     name: "Michele",
@@ -31,7 +32,7 @@ createApp({
                     messages:[
                         {
                             date: "10/10/2024 14:00",
-                            text:"ciao",
+                            text:"questa",
                             status:"sent",
 
                         },
@@ -50,7 +51,7 @@ createApp({
                     messages:[
                         {
                             date: "10/10/2024 14:00",
-                            text:"ciao",
+                            text:"è",
                             status:"sent",
 
                         },
@@ -69,7 +70,26 @@ createApp({
                     messages:[
                         {
                             date: "10/10/2024 14:00",
+                            text:"una",
+                            status:"sent",
+
+                        },
+                        {
+                            date: "10/10/2024 14:00",
                             text:"ciao",
+                            status:"received",
+
+                        }
+                    ]
+                },
+                {
+                    name: "Marianna",
+                    avatar:'./img/avatar_5.jpg',
+                    visible:true,
+                    messages:[
+                        {
+                            date: "10/10/2024 14:00",
+                            text:"prova",
                             status:"sent",
 
                         },
