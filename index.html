@@ -59,8 +59,8 @@
         </div>
 
         <!-- Area chat -->
-        <div class="contacts">
-          <div class="contact" v-for="index in listContact()">
+        <div class="contacts" >
+          <div class="contact" v-for="index in listContact()" @click="getIndex(index)">
             <div class="contact-logo">
               <img  :src="index.avatar" alt="Utente" />
             </div>

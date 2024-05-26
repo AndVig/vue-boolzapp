@@ -106,7 +106,7 @@ createApp({
         }
     },
     methods:{
-        listContact(){
+                listContact(){
                     if(this.searchContact){
                         return this.contacts.filter((element)=>{
                             return element.name.includes(this.searchContact);
@@ -115,5 +115,9 @@ createApp({
                         return this.contacts;
                     }
                 },
+                getIndex(){
+                    
+                },
+            
             }
 }).mount("#app");
