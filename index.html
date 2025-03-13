@@ -59,15 +59,19 @@
         </div>
 
         <!-- Area chat -->
-        <div class="contacts" >
-          <div class="contact" v-for="index in listContact()" @click="getIndex(index)">
+        <div class="contacts">
+          <div
+            class="contact"
+            v-for="index in listContact()"
+            @click="getIndex(index)"
+          >
             <div class="contact-logo">
-              <img  :src="index.avatar" alt="Utente" />
+              <img :src="index.avatar" alt="Utente" />
             </div>
             <div class="contact-info">
               <h3>
-                <span class="contact-name">{{index.name}}</span><br>
-                <span >{{index.messages[0].text}}</span>
+                <span class="contact-name">{{index.name}}</span><br />
+                <span>{{index.messages[0].text}}</span>
                 <span class="time f-right"></span>
               </h3>
               <small></small>
